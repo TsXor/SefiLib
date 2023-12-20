@@ -56,25 +56,21 @@ public class ConfigurableRecipeItem {
         if (value == null) {
             throw new IllegalArgumentException("No value was provided");
         }
-        switch (type) {
-            case SLIMEFUN -> {
-                return new ConfigurableRecipeItem(value);
+        /****/ if (type == ItemType.SLIMEFUN) {
+            return new ConfigurableRecipeItem(value);
+        } else if (type == ItemType.MATERIAL) {
+            final Material material = Material.valueOf(value);
+            return new ConfigurableRecipeItem(material);
+        } else if (type == ItemType.ITEMSTACK) {
+            final ItemStack itemStack = section.getItemStack("value");
+            if (itemStack == null) {
+                throw new IllegalArgumentException("ItemStack is missing or invalid");
             }
-            case MATERIAL -> {
-                final Material material = Material.valueOf(value);
-                return new ConfigurableRecipeItem(material);
-            }
-            case ITEMSTACK -> {
-                final ItemStack itemStack = section.getItemStack("value");
-                if (itemStack == null) {
-                    throw new IllegalArgumentException("ItemStack is missing or invalid");
-                }
-                return new ConfigurableRecipeItem(itemStack);
-            }
-            case EMPTY -> {
-                return ConfigurableRecipeItem.EMPTY;
-            }
-            default -> throw new IllegalStateException("Unexpected value: " + type);
+            return new ConfigurableRecipeItem(itemStack);
+        } else if (type == ItemType.EMPTY) {
+            return ConfigurableRecipeItem.EMPTY;
+        } else {
+            throw new IllegalStateException("Unexpected value: " + type);
         }
     }
 

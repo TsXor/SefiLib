@@ -39,7 +39,8 @@ public final class GeneralItemStackUtils {
      */
     public static void damage(@Nonnull ItemStack itemStack, @Nullable Player player, int amount) {
         ItemMeta itemMeta = itemStack.getItemMeta();
-        if (itemMeta instanceof Damageable damageable) {
+        if (itemMeta instanceof Damageable) {
+            Damageable damageable = (Damageable)itemMeta;
             int newDamage = Math.max((damageable.getDamage() + amount), 0);
             setItemDamage(itemStack, damageable, player, newDamage);
         }
@@ -64,7 +65,8 @@ public final class GeneralItemStackUtils {
      */
     public static void repair(@Nonnull ItemStack itemStack, @Nullable Player player, int amount) {
         ItemMeta itemMeta = itemStack.getItemMeta();
-        if (itemMeta instanceof Damageable damageable) {
+        if (itemMeta instanceof Damageable) {
+            Damageable damageable = (Damageable)itemMeta;
             int newDamage = Math.max((damageable.getDamage() - amount), 0);
             setItemDamage(itemStack, damageable, player, newDamage);
         }
@@ -106,9 +108,11 @@ public final class GeneralItemStackUtils {
                                      int amount
     ) {
         // Meta is not damageable - currently not possible but possible in the future?
-        if (!(itemMeta instanceof Damageable damageable)) {
+        if (!(itemMeta instanceof Damageable)) {
             return;
         }
+        
+        Damageable damageable = (Damageable)itemMeta;
 
         // Damage amount has not changed - no need to update the stack
         if (amount == damageable.getDamage()) {

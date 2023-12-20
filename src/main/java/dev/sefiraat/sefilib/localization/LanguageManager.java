@@ -137,7 +137,7 @@ public class LanguageManager {
                     string = string.replace("{" + i + "}", replacements[i].toString());
                 }
                 return string;
-            }).toList();
+            }).collect(Collectors.toList());
         }
         return strings;
     }

@@ -506,28 +506,48 @@ public enum LivingEntityDefinition {
         this.lowestVersion = lowestVersion;
         this.categories = Sets.newHashSet(categories);
         for (LivingEntityCategory category : categories) {
-            switch (category) {
-                case ANIMAL -> this.isAnimal = true;
-                case AQUATIC -> this.isAquatic = true;
-                case ARTHROPOD -> this.isArthropod = true;
-                case BOSS -> this.isBoss = true;
-                case BREEDABLE -> this.isBreedable = true;
-                case END -> this.isEnd = true;
-                case FISH -> this.isFish = true;
-                case FLYING -> this.isFlying = true;
-                case GOLEM -> this.isGolem = true;
-                case HOSTILE -> this.isHostile = true;
-                case ILLAGER -> this.isIllager = true;
-                case NETHER -> this.isNether = true;
-                case NEUTRAL -> this.isNeutral = true;
-                case PASSIVE -> this.isPassive = true;
-                case PIGLIN -> this.isPiglin = true;
-                case RAID -> this.isRaid = true;
-                case RIDEABLE -> this.isRideable = true;
-                case TAMEABLE -> this.isTameable = true;
-                case TRADER -> this.isTrader = true;
-                case UNDEAD -> this.isUndead = true;
-                case VILLAGER -> this.isVillager = true;
+            /****/ if (category == LivingEntityCategory.ANIMAL) {
+                this.isAnimal = true;
+            } else if (category == LivingEntityCategory.AQUATIC) {
+                this.isAquatic = true;
+            } else if (category == LivingEntityCategory.ARTHROPOD) {
+                this.isArthropod = true;
+            } else if (category == LivingEntityCategory.BOSS) {
+                this.isBoss = true;
+            } else if (category == LivingEntityCategory.BREEDABLE) {
+                this.isBreedable = true;
+            } else if (category == LivingEntityCategory.END) {
+                this.isEnd = true;
+            } else if (category == LivingEntityCategory.FISH) {
+                this.isFish = true;
+            } else if (category == LivingEntityCategory.FLYING) {
+                this.isFlying = true;
+            } else if (category == LivingEntityCategory.GOLEM) {
+                this.isGolem = true;
+            } else if (category == LivingEntityCategory.HOSTILE) {
+                this.isHostile = true;
+            } else if (category == LivingEntityCategory.ILLAGER) {
+                this.isIllager = true;
+            } else if (category == LivingEntityCategory.NETHER) {
+                this.isNether = true;
+            } else if (category == LivingEntityCategory.NEUTRAL) {
+                this.isNeutral = true;
+            } else if (category == LivingEntityCategory.PASSIVE) {
+                this.isPassive = true;
+            } else if (category == LivingEntityCategory.PIGLIN) {
+                this.isPiglin = true;
+            } else if (category == LivingEntityCategory.RAID) {
+                this.isRaid = true;
+            } else if (category == LivingEntityCategory.RIDEABLE) {
+                this.isRideable = true;
+            } else if (category == LivingEntityCategory.TAMEABLE) {
+                this.isTameable = true;
+            } else if (category == LivingEntityCategory.TRADER) {
+                this.isTrader = true;
+            } else if (category == LivingEntityCategory.UNDEAD) {
+                this.isUndead = true;
+            } else if (category == LivingEntityCategory.VILLAGER) {
+                this.isVillager = true;
             }
         }
     }

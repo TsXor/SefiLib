@@ -56,9 +56,10 @@ public class DisplayGroup {
             final String s = childList.get(i);
             final UUID uuid = UUID.fromString(s);
             final Entity entity = Bukkit.getEntity(uuid);
-            if (entity == null || entity.isDead() || !(entity instanceof Display display)) {
+            if (entity == null || entity.isDead() || !(entity instanceof Display)) {
                 continue;
             }
+            Display display = (Display)entity;
             this.displays.put(childNames.get(i), display);
         }
     }
@@ -149,9 +150,10 @@ public class DisplayGroup {
     @Nullable
     public static DisplayGroup fromUUID(@Nonnull UUID uuid) {
         Entity entity = Bukkit.getEntity(uuid);
-        if (entity == null || entity.isDead() || !(entity instanceof Interaction display)) {
+        if (entity == null || entity.isDead() || !(entity instanceof Interaction)) {
             return null;
         }
+        Interaction display = (Interaction)entity;
         return fromInteraction(display);
     }
 

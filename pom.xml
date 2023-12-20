@@ -32,11 +32,12 @@
 
     <groupId>dev.sefiraat</groupId>
     <artifactId>SefiLib</artifactId>
-    <version>0.2.6</version>
+    <version>0.2.6-j13bp</version>
 
     <properties>
-        <maven.compiler.source>16</maven.compiler.source>
-        <maven.compiler.target>16</maven.compiler.target>
+        <maven.compiler.source>13</maven.compiler.source>
+        <maven.compiler.target>13</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <distributionManagement>
@@ -162,7 +163,7 @@
         <dependency>
             <groupId>com.github.Slimefun</groupId>
             <artifactId>Slimefun4</artifactId>
-            <version>RC-33</version>
+            <version>RC-32</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

@@ -8,6 +8,7 @@ import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -69,9 +70,11 @@ public class DisplayGroupManager implements Listener {
 
     @EventHandler
     public void onAttack(@Nonnull EntityDamageByEntityEvent event) {
-        if (event.getDamager() instanceof Player player
+        Entity damager = event.getDamager();
+        if (damager instanceof Player
             && event.getEntity().getType() == EntityType.INTERACTION
         ) {
+            Player player = (Player)damager;
             Block block = event.getEntity().getLocation().getBlock();
             SlimefunItem slimefunItem = BlockStorage.check(block);
             if (slimefunItem instanceof DisplayInteractable
